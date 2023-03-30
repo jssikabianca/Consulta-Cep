@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script>
+        //selecionar option
+
+            window.onload = function saudacao(){
+            const select = document.querySelector('#typeclient');
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+
+            if (this.readyState == 4 && this.status == 200) {
+            const data = JSON.parse(this.responseText);
+
+                if (data.lenght === 0) {
+                alert("Não existe o usuário na base");
+                }else{
+                    console.log(data)
+                    data.forEach(trazendotipo => {
+                    const tipocliente = trazendotipo.descricao;
+                    const idcliente = trazendotipo.id;
+                    console.log(tipocliente);
+                    //select.innerHTML = select.innerHTML + '<option value="' + idcliente + '">' + tipocliente +'</option>'
+                })
+                    }
+                    }
+                    }
+                    xhttp.open("GET", "http://localhost:3000/tipo_cliente/", true);
+                    xhttp.send(); 
+        }
+   
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

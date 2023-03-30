@@ -7,13 +7,12 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <script async src="js/scripts.js" defer="defer"></script>
-
     
 </head>
-<body id="checkout-page" onload="selecTipoUser()">
+<body id="checkout-page">
     <div id="fade" class="hide">
         <div id="loader" class="spinner-border text-info hide" role="status">
             <span class="visually-hidden">Loading...</span>
@@ -53,11 +52,10 @@
               <input
               type="text"
               class="form-control shadow-none"
-              id="emailuser"
-              name="emailuser"
+              id="email"
+              name="email"
               placeholder="Email do cliente"
               required
-              data-input
             />
             <label for="name">Digite o email do cliente</label>
             </div>
@@ -75,12 +73,9 @@
             </div>
 
             <div class="col-12 col-sm-3 mb-3 mb-md-0 form-floating"  style="padding: 10px 12px;">
-                <button id="btn-client" type="button" class="btn btn-secondary">
+                <button id="close-message" type="button" class="btn btn-secondary">
                     Buscar
                 </button>
-                <button id="new-user" type="button" class="btn btn-secondary">
-                  Cadastrar novo usuário
-              </button>
             </div>
           </div>
 
@@ -97,14 +92,17 @@
               />
               <label for="name">Nome</label>
             </div>
-            
             <div class="col-12 col-sm-6 form-floating">
-              <select class="form-control shadow-none"
-              id="typeclient"
-              name="typeclient"
-              >
-                <option value="">Tipo de Cliente</option>
-              </select>
+              <input
+                type="text"
+                class="form-control shadow-none"
+                id="type"
+                name="type"
+                placeholder="Tipo de cliente"
+                required
+                data-input
+              />
+              <label for="number">Tipo</label>
             </div>
           </div>
 
@@ -218,26 +216,52 @@
             />
             <label for="city">Cidade</label>
           </div>
-          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
-            <input
-              type="text"
-              class="form-control shadow-none"
+          <div class="col-12 col-sm-6 mb-3">
+            <select
+              class="form-select shadow-none"
               id="region"
-              name="region"
-              placeholder="Estado"
               disabled
               required
               data-input
-            />
-            <label for="Estado">Estado</label>
+            >
+              <option selected>Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
           </div>
         </div>
         <div class="col-12 col-sm-3 mb-3 mb-md-0 form-floating">
-            <button id="btn-cadastrar" type="button" class="btn btn-secondary">
-                Gravar
+            <button id="close-message" type="button" class="btn btn-secondary">
+                Cadastrar
             </button>
         </div>
       </form>
-    </div>    
+</div>    
+
 </body>
 </html>

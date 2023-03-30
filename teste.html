@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script>
+    function cadastrarUsuario(){
+        const formData = new FormData();
+        event.preventDefault()
+
+            const nome = document.querySelector("#nome").value;
+            const email = document.querySelector("#email").value;     
+            const telefone = document.querySelector("#telefone").value;  
+            const cep = document.querySelector("#cep").value;        
+            const logradouro = document.querySelector("#logradouro").value;
+            const bairro = document.querySelector("#bairro").value;
+            const cidade = document.querySelector("#cidade").value;
+            const uf = document.querySelector("#uf").value;          
+            const numero = document.querySelector("#numero").value;  
+            const complemento = document.querySelector("#complemento").value;          
+            const tipo_cliente_id = document.querySelector("#tipo_cliente_id").value;     
+
+
+            formData.append("nome", nome);
+            formData.append("telefone", telefone);
+            formData.append("email", email);
+            formData.append("cep", cep);
+            formData.append("logradouro", logradouro);
+            formData.append("bairro", bairro);
+            formData.append("cidade", cidade);
+            formData.append("uf", uf);
+            formData.append("numero", numero);
+            formData.append("complemento", complemento);
+            formData.append("tipo_cliente_id", tipo_cliente_id);
+
+
+        const request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:3000/cliente/gravar");
+        request.send(formData);
+    }
+    </script>
+</head>
+<body>
+    
+    <h1>Teste</h1>
+    
+    
+   <div className="container">
+    <form onsubmit="cadastrarUsuario()">
+        <input type="text" id="email" name="email" placeholder="email" />
+        <input type="text" id="nome" name="nome" placeholder="nome" />
+        <input type="text" id="telefone" name="telefone" placeholder="telefone" />
+        <input type="text" id="logradouro" name="logradouro" placeholder="logradouro" />
+        <select
+        id="tipo_cliente_id"
+        name="tipo_cliente_id"
+        >
+          <option value="1">Tipo de Cliente</option>
+          <option value="2">Tipo de Cliente</option>
+          <option value="3">Tipo de Cliente</option>
+        </select>
+        <input type="text" id="numero" name="numero" placeholder="numero" />
+        <input type="text" id="complemento" name="complemento" placeholder="complemento" />
+        <input type="text" id="bairro" name="bairro" placeholder="bairro" />
+        <input type="text" id="cidade" name="cidade" placeholder="cidade" />
+        <input type="text" id="uf" name="uf" placeholder="uf" />
+        <input type="text" id="cep" name="cep" placeholder="cep" />
+
+
+        <button type="submit">Buscar</button>
+    </form>
+   </div>
+        
+</body>
+</html>
